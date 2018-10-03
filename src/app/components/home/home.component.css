@@ -1,0 +1,14 @@
+#btnSales,
+#btnPurchase,
+#btnPayment{
+    display: inline-block;
+    margin-top: 27px;
+    vertical-align: top;
+    width: 247px;
+    /* margin-left: 108px; */
+    height: 95px
+}
+#btnSales,
+#btnPayment{
+    float: left; 
+}

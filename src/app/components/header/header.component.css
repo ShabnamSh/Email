@@ -1,0 +1,11 @@
+.header{
+height: 90px;
+color: white;
+font-size: 25px;
+font-weight: 700;
+text-align: center;
+font-style: italic;
+}
+p {
+    padding-top: 20px;
+}

@@ -1,0 +1,21 @@
+<!-- <app-sidebar></app-sidebar> -->
+<input  type="file"  (change)="excelToJson($event)" id='upload'>
+
+<div   *ngIf="excelData">
+    <dx-data-grid id="gridMultiInputList"  
+    [allowColumnResizing]="true" noDataText="" 
+    [sorting]='{mode: "none"}' [dataSource]="excelData" 
+    [showBorders]="false" [showColumnLines]="true" (onContentReady)="_onContentReady($event)" >
+    <dxo-selection [selectAllMode]="allMode"
+            [showCheckBoxesMode]="checkBoxesMode"
+            mode="multiple"></dxo-selection>
+      <!-- <dxo-editing mode="batch" [allowUpdating]="true"></dxo-editing>
+      <dxo-scrolling mode="infinite"></dxo-scrolling>
+      <dxo-load-panel [enabled]="false"></dxo-load-panel>
+      <div *dxTemplate="let data of 'cellTemplate'">
+        {{data.rowIndex+1}}
+      </div> -->
+    </dx-data-grid>
+    <!-- (onEditingStart)="onEditingStartHandler($event)" -->
+    <!-- (onInitialized)="onInitializedHandler($event)" -->
+  </div>
