@@ -3,13 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { PaymentRoutingModule } from './payment-routing.module';
 import { PaymentComponent } from "./payment.component";
-// import { SidebarComponent } from "./../sidebar/sidebar.component";
+import { SidebarModule } from "../../sidebar/sidebar.module";
 
 
 @NgModule({
   imports: [
     CommonModule,
-    PaymentRoutingModule
+    PaymentRoutingModule,
+    SidebarModule
   ],
   declarations: [PaymentComponent]
 })

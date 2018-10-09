@@ -11,18 +11,21 @@ import { XlsxtojsonService } from './providers/xlsxtojson.service';
 import { AppService } from "./providers/app.service";
 import {AuthGuard  } from "./providers/auth.guard";
 import { HeaderComponent } from './components/header/header.component';
-// import { SidebarComponent } from './sidebar/sidebar.component';
-// import { SidebarComponent } from "./components/sidebar/sidebar.component";
-
+import {SidebarModule  } from "./sidebar/sidebar.module";
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+// import {ToastModule} from 'ng2-toastr/ng2-toastr';
+// ,ToastModule.forRoot()
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    DashboardComponent,
+    
     
   ],
   imports: [
-    BrowserModule,AppRoutingModule,HttpModule
+    BrowserModule,AppRoutingModule,HttpModule,SidebarModule
   ],
  
   providers: [XlsxtojsonService,AppService,AuthGuard],

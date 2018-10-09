@@ -14,6 +14,10 @@ export const routes: Routes = [
     loadChildren: 'src/app/components/login/login.module#LoginModule'
   },
   {
+    path: 'registration',
+    loadChildren: 'src/app/components/registration/registration.module#RegistrationModule'
+  },
+  {
     path: 'home',
     canActivate: [AuthGuard],
     loadChildren: 'src/app/components/home/home.module#HomeModule'
@@ -29,6 +33,14 @@ export const routes: Routes = [
   {
     path: 'payment',
     loadChildren: 'src/app/components/payment/payment.module#PaymentModule'
+  },
+  {
+    path: 'collection',
+    loadChildren: 'src/app/components/collection/collection.module#CollectionModule'
+  },
+  {
+    path: 'historydata',
+    loadChildren: 'src/app/components/historicaldata/historicaldata.module#HistoricaldataModule'
   },
   
 ];

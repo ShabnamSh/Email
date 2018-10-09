@@ -1,21 +1,21 @@
-<!-- <app-sidebar></app-sidebar> -->
-<input  type="file"  (change)="excelToJson($event)" id='upload'>
+<app-sidebar></app-sidebar>
+<input  type="file"  (change)="excelToJson($event)" id='upload' title="Upload">
 
-<div   *ngIf="excelData">
-    <dx-data-grid id="gridMultiInputList"  
+<div  style="width: 80%"  *ngIf="excelData">
+    <dx-data-grid id="gridMultiInputList"  [columns]="headerArray" 
     [allowColumnResizing]="true" noDataText="" 
-    [sorting]='{mode: "none"}' [dataSource]="excelData" 
-    [showBorders]="false" [showColumnLines]="true" (onContentReady)="_onContentReady($event)" >
+    [sorting]='{mode: "none"}' [dataSource]="excelData"  
+    [showBorders]="true" [showColumnLines]="true" (onContentReady)="_onContentReady($event)" >
     <dxo-selection [selectAllMode]="allMode"
             [showCheckBoxesMode]="checkBoxesMode"
             mode="multiple"></dxo-selection>
-      <!-- <dxo-editing mode="batch" [allowUpdating]="true"></dxo-editing>
+            <dxo-filter-row
+            [visible]="false"
+        ></dxo-filter-row>
       <dxo-scrolling mode="infinite"></dxo-scrolling>
-      <dxo-load-panel [enabled]="false"></dxo-load-panel>
       <div *dxTemplate="let data of 'cellTemplate'">
         {{data.rowIndex+1}}
-      </div> -->
+      </div>
     </dx-data-grid>
-    <!-- (onEditingStart)="onEditingStartHandler($event)" -->
-    <!-- (onInitialized)="onInitializedHandler($event)" -->
   </div>
+  

@@ -1,6 +1,7 @@
 #btnSales,
 #btnPurchase,
-#btnPayment{
+#btnPayment,
+#btnCollection{
     display: inline-block;
     margin-top: 27px;
     vertical-align: top;
@@ -11,4 +12,7 @@
 #btnSales,
 #btnPayment{
     float: left; 
+}
+.container{
+    padding:0px!important
 }

@@ -1,0 +1,86 @@
+<body class="hold-transition register-page">
+  <div class="register-box">
+    <div class="register-box-body">
+      <p class="login-box-msg">Register a new membership</p>
+<form name="form"  (ngSubmit)="regis.form.valid && onSubmit()" #regis="ngForm" novalidate>
+  <div class="form-group has-feedback">
+    <input type="text" class="form-control" name="firstname"  placeholder="Enter Yoyr First Name"  
+    [(ngModel)]="register.firstname"  #firstname="ngModel"  [ngClass]="{ 'is-invalid':regis.submitted && firstname.invalid }" required/>
+    <div *ngIf="regis.submitted && firstname.invalid" class="invalid-feedback">
+      <div *ngIf="firstname?.errors.required">First Name is required</div>
+  </div>
+  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="text" class="form-control" name="lastname"  placeholder="Enter Yoyr last Name"  
+    [(ngModel)]="register.lastname"  #lastname="ngModel"  [ngClass]="{ 'is-invalid': regis.submitted && lastname.invalid }" required/>
+    <div *ngIf="regis.submitted && lastname.invalid" class="invalid-feedback">
+      <div *ngIf="lastname?.errors.required">Last  Name is required</div>
+  </div>
+  <span class="glyphicon glyphicon-user form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="text" class="form-control" name="email"  placeholder="Enter Yoyr Email Id"  
+    [(ngModel)]="register.email"  #email="ngModel"  [ngClass]="{ 'is-invalid': regis.submitted && email.invalid }" required email/>
+    <div *ngIf="regis.submitted && email.invalid" class="invalid-feedback">
+        <div *ngIf="email?.errors.required">Email is required</div>
+      <div *ngIf="email?.errors.email">Email must be a valid email address</div>
+  </div>
+  <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="password" class="form-control" name="password" placeholder="Enter Password"
+    [(ngModel)]="register.password" #password="ngModel" 
+    [ngClass]="{ 'is-invalid': regis.submitted && password.invalid }" required minlength="6" />
+                    <div *ngIf="regis.submitted && password.invalid" class="invalid-feedback">
+                        <div *ngIf="password?.errors.required">Password is required</div>
+                       <div *ngIf="password?.errors.minlength">Password must be at least 6 characters</div>
+                       <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+  </div>
+  </div>
+  <div class="form-group has-feedback">
+    <input type="text" class="form-control" name="mobile" placeholder="Enter Mobile No"
+    [(ngModel)]="register.mobile" #mobile="ngModel" 
+    [ngClass]="{ 'is-invalid': regis.submitted && mobile.invalid }" required minlength="10"  maxlength="10"/>
+                    <div *ngIf="regis.submitted && mobile.invalid" class="invalid-feedback">
+                        <div *ngIf="mobile?.errors.required">Password is required</div>
+                       <div *ngIf="mobile?.errors.minlength">Password must be at least 6 characters</div>
+    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+  </div>
+  </div>
+  <div class="form-group">
+    <label>User Role</label>
+    <select  placeholder="Select Role" #type="ngModel"  name="type"[(ngModel)]="register.type" class="form-control" [ngClass]="{ 'is-invalid': regis.submitted && type.invalid }" required>
+      <option   *ngFor="let type of userAllType" [value]="type.ID" >{{type.TYPE}}</option>
+      
+    </select>
+    <div *ngIf="regis.submitted && type.invalid" class="invalid-feedback">
+        <div *ngIf="type?.errors.required">Role is required</div>
+      </div>
+      <br>
+  </div>
+  <div class="form-group">
+    <label>Status</label>
+    <select placeholder="Select Status" #status="ngModel"  name="status"[(ngModel)]="register.status" class="form-control" [ngClass]="{ 'is-invalid': regis.submitted && status.invalid }" required>
+      <option value="Active">Active</option>
+      <option value="InActive">In Active</option>
+    </select>
+    <div *ngIf="regis.submitted && status.invalid" class="invalid-feedback">
+      <div *ngIf="status?.errors.required">Status is required</div>
+    </div>
+    <br>
+  </div>
+  <div class="row">
+    <!-- /.col -->
+    <div class="col-xs-4">
+      <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+    </div>
+    <!-- /.col -->
+    <div class="col-xs-6">
+        <button type="button"  (click)="resetForm(regis)"  class="btn btn-primary btn-block btn-flat">Reset</button>
+      </div>
+  </div>
+</form>
+</div>
+</div>
+</body>

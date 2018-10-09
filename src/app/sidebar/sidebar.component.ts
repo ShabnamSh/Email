@@ -16,7 +16,9 @@ export class SidebarComponent implements OnInit {
     { page: 'Home', image: '' },
     { page: 'Sales', image: '' },
     { page: 'Purchase', image: '' },
-    {page: 'Payment', image: ''}
+    {page: 'Payment', image: ''},
+    {page: 'Collection', image: ''},
+    {page: 'Historical Data', image: ''}
   ]
 }
   
@@ -36,6 +38,12 @@ export class SidebarComponent implements OnInit {
        break;
        case 'Payment':
        this.router.navigate(['payment']);
+       break;
+       case 'Collection':
+       this.router.navigate(['collection']);
+       break;
+       case 'Historical Data':
+       this.router.navigate(['historydata']);
        break;
    }
   }
