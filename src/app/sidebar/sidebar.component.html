@@ -1,12 +1,58 @@
-<div style="float: left;width:20%!important">
+<!-- <div style="float: left;width:20%!important">
   <div class="wrapper">
       <div class="main_sidebar"  >
           <ul>
-              <li *ngFor="let panel of panels"><button  style="background-color: transparent;color: white;width: 100%;display: block;font-size: 23px;border: none;cursor: pointer;height: 70px;" (click)="openPage(panel)" >{{panel.page}}</button></li>
+              <li *ngFor="let panel of panels"><button  style="background-color: transparent;color: white;width: 100%;display: block;font-size: 23px;border: none;cursor: pointer;height: 70px;" (click)="openPage(panel)" >{{panel.page}}
+               
+            </button></li>
               
           </ul>
         </div>
     </div>
-</div>
+</div> -->
 
 <!--  -->
+<div style="float: left;width:20%!important">
+<div class="wrapper">
+        <!-- Sidebar -->
+        <nav id="sidebar">
+            <div class="sidebar-header">
+                <h3 style="text-align: center;">Menu</h3>
+            </div>
+    
+            <ul class="list-unstyled components">
+                <li>
+                    <button (click)="openPage('home')">Home</button>
+                    
+                </li>
+                <li>
+                        <button (click)="openPage('Sales')" >Sales</button>
+                </li>
+                <li>
+                        <button (click)="openPage('Purchase')">Purchase</button>
+                </li>
+                <li>
+                        <button (click)="openPage('Purchase')">Purchase</button>
+                </li>
+                <li>
+                        <button (click)="openPage('Payment')">Payment</button>
+                </li>
+                <li>
+                        <div class="dropdown">
+                                <button class="dropbtn">Dropdown</button>
+                                <div class="dropdown-content">
+                                  <a href="#payment">Link 1</a>
+                                  <a href="#">Link 2</a>
+                                  <a href="#">Link 3</a>
+                                </div>
+                              </div>
+                    </li>
+                <li>
+                        <button (click)="openPage('collection')">collection</button>
+                </li>
+               
+            </ul>
+        </nav>
+    
+    </div>
+</div>

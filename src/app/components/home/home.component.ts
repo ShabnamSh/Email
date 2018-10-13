@@ -1,8 +1,10 @@
-import { Component, OnInit, ViewContainerRef } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AppService } from '../../providers/app.service';
 // import { ToastsManager } from 'ng2-toastr/ng2-toastr';
 //,public toastr: ToastsManager, vcr: ViewContainerRef
+import { ToastrManager } from 'ng6-toastr-notifications';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,15 +12,42 @@ import { AppService } from '../../providers/app.service';
 })
 export class HomeComponent implements OnInit {
   userType = 'Admin'
-  constructor(private router: Router,public appService:AppService) {
-    let userDetails=this.appService.getGlobalVariables('userDetails');
-    if(userDetails == undefined){
-      this.router.navigate(['login']);
-    }
-    // this.toastr.setRootViewContainerRef(vcr);
+  constructor(private router: Router, public appService: AppService, public toastr: ToastrManager) {
+    let userDetails = this.appService.getGlobalVariables('userDetails');
+    // if (userDetails == undefined) {
+    //   this.router.navigate(['login']);
+    // } else {
+    //   // this.toastr.setRootViewContainerRef(vcr);
+    //   this.showCustom();
+    // }
+    this.showCustom();
+
   }
   ngOnInit() {
   }
+
+  showToast(position: any = 'top-center') {
+    this.toastr.infoToastr('Login Successful.', 'Home', {
+      position: position
+    });
+  }
+
+
+  showCustom() {
+    this.toastr.customToastr(
+      '<span style="color: green; font-size: 16px; text-align: center;">Login Successful  ..!!</span>',
+      null,
+      {
+        enableHTML: true,
+        position: 'top-right',
+        animate: 'null',
+
+      }
+    );
+    
+  }
+
+
   openPageClick(e) {
     switch (e.target.id) {
       case 'btnSales':
@@ -38,6 +67,6 @@ export class HomeComponent implements OnInit {
   }
 
   rgistration() {
-   this.router.navigate(['registration']);
+    this.router.navigate(['registration']);
   }
 }

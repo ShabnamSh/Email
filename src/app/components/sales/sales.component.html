@@ -1,21 +1,78 @@
 <app-sidebar></app-sidebar>
-<input  type="file"  (change)="excelToJson($event)" id='upload' title="Upload">
 
-<div  style="width: 80%"  *ngIf="excelData">
-    <dx-data-grid id="gridMultiInputList"  [columns]="headerArray" 
-    [allowColumnResizing]="true" noDataText="" 
-    [sorting]='{mode: "none"}' [dataSource]="excelData"  
-    [showBorders]="true" [showColumnLines]="true" (onContentReady)="_onContentReady($event)" >
-    <dxo-selection [selectAllMode]="allMode"
-            [showCheckBoxesMode]="checkBoxesMode"
-            mode="multiple"></dxo-selection>
-            <dxo-filter-row
-            [visible]="false"
-        ></dxo-filter-row>
-      <dxo-scrolling mode="infinite"></dxo-scrolling>
-      <div *dxTemplate="let data of 'cellTemplate'">
-        {{data.rowIndex+1}}
-      </div>
-    </dx-data-grid>
+
+<div style="width: 81%;;float:right">
+  <input type="file" (change)="excelToJson($event)" id='upload' title="Upload">
+  <dx-data-grid id="gridMultiInputList" [columns]="headerArray" [allowColumnResizing]="true" 
+  noDataText="" [dataSource]="excelData" [width]=1050
+    [showBorders]="true" [showColumnLines]="true"   
+    (onContentReady)="_onContentReady($event)" (onSelectionChanged)="selectionChanged($event)"
+>
+    <dxo-paging [pageSize]="3"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+    </dxo-pager>
+    <dxo-selection [selectAllMode]="allMode" [showCheckBoxesMode]="checkBoxesMode" mode="multiple"></dxo-selection>
+    <div *dxTemplate="let data1 of 'cellTemplate1'">
+      {{data1.rowIndex+1}}
+    </div>
+    <div *dxTemplate="let data of 'cellTemplate'">
+        <input  type="file" (change)="getFileDetails($event)" accept="application/pdf">
+        <button type="button" (click)="uploadFiles()">Upload</button>
+      <a href="http://www.yahoo.com">here</a>
+    </div>
+    <div *dxTemplate="let dataT of 'cellTemplateT'">
+        <input  type="file" (change)="getFileDetails($event)" accept="application/pdf">
+        <button type="button" (click)="uploadFiles()">Upload</button>
+      <a href="http://www.yahoo.com">here</a>
+    </div>
+    <div *dxTemplate="let dataR of 'cellTemplateR'">
+        <input  type="file" (change)="getFileDetails($event)" accept="application/pdf">
+        <button type="button" (click)="uploadFiles()">Upload</button>
+      <a href="http://www.yahoo.com">here</a>
+    </div>
+    <!-- <div *dxTemplate="let employee of 'detail'">
+      <div class="master-detail-caption"></div>
+      <dx-data-grid [dataSource]="fileuploadcolumn" [showBorders]="true" [columnAutoWidth]="true" [columns]="employee.Upload">
+        <div *dxTemplate="let data of 'cellTemplate'">
+          <a class="dx-link" (click)="onLinkClick($event, data.rowIndex, data.key, data.component)">
+            {{ data.component.pageIndex() * data.component.pageSize() + data.rowIndex + 1 }}
+          </a>
+        </div>
+      </dx-data-grid>
+    </div> -->
+  </dx-data-grid>
+
+
+<button type="button" (click)="sendDetails()">Send</button>
+<!-- [masterDetail]="{ enabled: true, template: 'detail' }" -->
+<!--  keyExpr="Srl" -->
+
+<!-- <div style="width: 20%;float:right">
+  <input name="salespdf" type="file" (change)="getFileDetails($event)" accept="application/pdf">
+  <button type="button" (click)="uploadFiles()">Upload</button>
+</div> -->
+<br>
+<br>
+<!-- <div style="width:20%;text-align: center;
+margin-left: 321px;"  *ngIf="this.saleSelectedData.length == 1">
+<form name="form" (ngSubmit)="sale.form.valid && onSubmit(sale)" #sale="ngForm" novalidate>
+  <div class="form-group">
+    <label>File Name</label>
+    <select placeholder="Select File Name" #file="ngModel" name="file" [(ngModel)]="fileSpecific.file" class="form-control"
+      required>
+      <option value="InVoice">InVoice</option>
+      <option value="Transport">Transport Bill</option>
+      <option value="Receiving">Receiving Copy</option>
+    </select>
+    <br>
+  <button type="submit" class="btn btn-primary btn-block btn-flat">Submit</button>
   </div>
-  
+</form>
+</div> -->
+
+<!-- <div  *ngIf="isInputFileDisplay">
+<input name="salespdf" type="file" (change)="getFileDetails($event)" accept="application/pdf">
+<button type="button" (click)="uploadFiles()">Upload</button>
+</div> -->
+<!-- (onCellClick)="_onCellClick($event)"  -->
+</div>

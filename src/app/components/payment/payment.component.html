@@ -1,1 +1,18 @@
 <app-sidebar></app-sidebar>
+
+
+<div style="width: 81%;;float:right">
+  <input type="file" (change)="excelToJson($event)" id='upload' title="Upload">
+  <dx-data-grid id="gridMultiInputList" [columns]="headerPaymentArray" [allowColumnResizing]="true" 
+  noDataText="" [dataSource]="dataSourcePaymnent" [width]=1050
+    [showBorders]="true" [showColumnLines]="true"   
+    (onContentReady)="_onContentReady($event)" (onSelectionChanged)="selectionChanged($event)"
+>
+    <dxo-paging [pageSize]="3"></dxo-paging>
+    <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[5, 10, 20]" [showInfo]="true">
+    </dxo-pager>
+    <dxo-selection [selectAllMode]="allMode" [showCheckBoxesMode]="checkBoxesMode" mode="multiple"></dxo-selection>
+    <div *dxTemplate="let data1 of 'cellTemplate1'">
+      {{data1.rowIndex+1}}
+    </div>
+  </dx-data-grid>

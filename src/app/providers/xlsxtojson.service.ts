@@ -11,7 +11,7 @@ export class XlsxtojsonService {
     public processFileToJson(object,file): Observable<any> {
         let reader = new FileReader();
         let _this = this;
-        debugger
+        // debugger
         return Observable.create(observer => {
             reader.onload = function (e) {
                 let data = e.target['result'];

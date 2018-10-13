@@ -6,10 +6,27 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./payment.component.css']
 })
 export class PaymentComponent implements OnInit {
-
-  constructor() { }
+  headerPaymentArray = [];
+  dataSourcePaymnent = [];
+  allMode: string;
+  checkBoxesMode: string;
+  constructor() {
+    this.allMode = 'allPages';
+    this.checkBoxesMode = 'onClick';
+   }
 
   ngOnInit() {
   }
+
+  _onContentReady(e) {
+
+  }
+  selectionChanged(e) {
+
+  }
+  excelToJson(e) {
+
+  }
+
 
 }

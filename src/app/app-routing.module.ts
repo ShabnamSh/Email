@@ -42,6 +42,10 @@ export const routes: Routes = [
     path: 'historydata',
     loadChildren: 'src/app/components/historicaldata/historicaldata.module#HistoricaldataModule'
   },
+  {
+    path: 'historydatapurchase',
+    loadChildren: 'src/app/components/purchasehistorical/purchasehistorical.module#PurchasehistoricalModule'
+  },
   
 ];
 

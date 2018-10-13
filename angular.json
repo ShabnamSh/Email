@@ -28,10 +28,11 @@
               "./node_modules/devextreme/dist/css/dx.spa.css",
               "./node_modules/devextreme/dist/css/dx.common.css",
               "./node_modules/devextreme/dist/css/dx.light.css"
+          
               
             ],
             "scripts": [
-             
+              "./node_modules/crypto-js/crypto-js.js"
             ]
           },
           "configurations": {

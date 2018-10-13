@@ -4,9 +4,12 @@
 <!-- <button (click)="registration()" >Are You not Rgistered !! Click Here</button> -->
 <div style="width: 80%;float: right;">
 <!-- <div class="row"> -->
+  <div style="float: left;font-style: italic;font-weight: 600">
+    Welcome {{this.appService.loggedInUser}}
+  </div>
     <div style="height: 60px">
     <button *ngIf="userType == 'Admin'" style="    float: right;width: 115px;height: 50px;
-    background-color: darkturquoise;color: white;font-size: large;font-style: oblique;" (click)="rgistration()">Rgister</button>
+    background-color: darkturquoise;color: white;font-size: large;font-style: oblique;" (click)="rgistration()">Register</button>
   </div>
   <!-- <div class="col-sm-12 text-center">
 

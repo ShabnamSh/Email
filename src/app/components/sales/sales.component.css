@@ -2,3 +2,7 @@
     padding-left: 8px;
     height: 88%;
 }
+
+select.form-control:not([size]):not([multiple]) {
+    height: 40px;
+}

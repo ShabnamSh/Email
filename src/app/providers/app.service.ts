@@ -19,6 +19,7 @@ export class AppService {
   isFrCommonControlDisplay: boolean = true; //check whether common control / pop up is open or not
   isServicePathPopUpDisplay: boolean = true; //whether service path pop up is open or not
   isLogedIn: boolean = true;// check whether user Logedin OR not
+  loggedInUser:any;
   constructor(private http: Http) {
     this.subject = new Subject();
   }
@@ -44,12 +45,38 @@ export class AppService {
     return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableRegistration', body, requestOptions).pipe(map(x => x.json()));
   }
   isSalesJson(data) {
-    let body = data;
+    let body = eval(data);
     let headerOptions = new Headers({ 'Content-Type': 'application/json' });
     let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
     return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableUploadSalesData', body, requestOptions).pipe(map(x => x.json()));
   }
 
+  getPartyDetails(){
+    let headerOptions = new Headers({ 'Content-Type': 'application/json' });
+    let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
+    return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableGetAllParty', requestOptions).pipe(map(x => x.json()));
+  }
+
+  getSMSDetails(data){
+    let body = JSON.stringify(data);
+    let headerOptions = new Headers({ 'Content-Type': 'application/json' });
+    let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
+    return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableGetSMS',body, requestOptions).pipe(map(x => x.json()));
+  }
+   
+  sendFileDetatis(data){
+    let body = JSON.stringify(data);
+    let headerOptions = new Headers({ 'Content-Type': 'application/json' });
+    let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
+    return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableFileName',body, requestOptions).pipe(map(x => x.json()));
+  }
+
+  
+  getSalesAllDetailsFromDb(){
+    let headerOptions = new Headers({ 'Content-Type': 'application/json' });
+    let requestOptions = new RequestOptions({ method: RequestMethod.Post, headers: headerOptions });
+    return this.http.post('http://localhost:10364/Api/UserDetails/IEnumerableFileGet', requestOptions).pipe(map(x => x.json()));
+  }
 
   getGlobalVariables(key) {
     return (this.globalVariable[key]);

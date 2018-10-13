@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
@@ -13,12 +14,12 @@ export class SidebarComponent implements OnInit {
   constructor(private router :Router) { 
     // debugger
     this.panels=[
-    { page: 'Home', image: '' },
-    { page: 'Sales', image: '' },
-    { page: 'Purchase', image: '' },
-    {page: 'Payment', image: ''},
-    {page: 'Collection', image: ''},
-    {page: 'Historical Data', image: ''}
+    { page: 'Home', image: 'glyphicon glyphicon-lock form-control-feedback' },
+    { page: 'Sales', image: 'glyphicon glyphicon-envelope form-control-feedback' },
+    { page: 'Purchase', image: 'glyphicon glyphicon-envelope form-control-feedback' },
+    {page: 'Payment', image: 'glyphicon glyphicon-envelope form-control-feedback'},
+    {page: 'Collection', image: 'glyphicon glyphicon-envelope form-control-feedback'},
+    {page: 'Historical Data', image: 'glyphicon glyphicon-envelope form-control-feedback'}
   ]
 }
   
@@ -26,7 +27,7 @@ export class SidebarComponent implements OnInit {
   }
   openPage(p){
     debugger
-   switch (p.page) {
+   switch (p) {
      case 'Home':
      this.router.navigate(['home']);
        break;

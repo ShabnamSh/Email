@@ -9,11 +9,11 @@ import { NgForm } from "@angular/forms";
 import { DxDataGridComponent } from "devextreme-angular";
 
 @Component({
-  selector: 'app-purchase',
-  templateUrl: './purchase.component.html',
-  styleUrls: ['./purchase.component.css']
+  selector: 'app-purchasehistorical',
+  templateUrl: './purchasehistorical.component.html',
+  styleUrls: ['./purchasehistorical.component.css']
 })
-export class PurchaseComponent implements OnInit {
+export class PurchasehistoricalComponent implements OnInit {
 
   @ViewChild(DxDataGridComponent) dataGrid: DxDataGridComponent;
   allMode: string;

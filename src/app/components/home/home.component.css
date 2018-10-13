@@ -16,3 +16,11 @@
 .container{
     padding:0px!important
 }
+
+.top-center{
+    top: 84px;
+    right: 0;
+    width: 100%;
+    background-color: aquamarine
+}
+
